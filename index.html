@@ -1,359 +1,603 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#123b5d">
-  <title>Teacher ID Verification | Ullash Academic Programme</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123b5d">
 
-  <style>
-    :root {
-      --navy: #123b5d;
-      --gold: #e5ad37;
-      --ink: #14263a;
-    }
+<title>Teacher Verification Portal | Ullash Academic Programme</title>
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --navy: #123b5d;
+  --gold: #e5ad37;
+  --ink: #14263a;
+  --muted: #64748b;
+  --paper: #f5f7fa;
+  --green: #16834a;
+  --red: #a52b39;
+}
 
-    body {
-      margin: 0;
-      background: linear-gradient(135deg,#edf3f8,#f9f6ed);
-      font-family: Arial,"Noto Sans Bengali",sans-serif;
-      color: var(--ink);
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .wrap {
-      width: min(760px,100%);
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px 14px;
+  background: linear-gradient(135deg,#edf3f8,#f9f6ed);
+  font-family: Arial,"Noto Sans Bengali",sans-serif;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .brand {
-      background: var(--navy);
-      color: #fff;
-      padding: 24px 28px;
-      border-radius: 22px 22px 0 0;
-      border-bottom: 5px solid var(--gold);
-    }
+.wrapper {
+  width: min(760px,100%);
+}
 
-    .brand small {
-      color: #f3bd4e;
-      letter-spacing: 2px;
-    }
+.header {
+  background: var(--navy);
+  color: white;
+  padding: 25px 28px;
+  border-bottom: 5px solid var(--gold);
+  border-radius: 20px 20px 0 0;
+}
 
-    .brand h1 {
-      margin: 0 0 5px;
-      font-size: clamp(22px,4vw,32px);
-    }
+.header h1 {
+  margin: 0 0 6px;
+  font-size: clamp(22px,4vw,32px);
+}
 
-    .card {
-      background: #fff;
-      border-radius: 0 0 22px 22px;
-      box-shadow: 0 18px 55px #18324a20;
-      overflow: hidden;
-    }
+.header small {
+  color: #f3bd4e;
+  letter-spacing: 2px;
+}
 
-    .content {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 28px;
-      padding: 30px;
-    }
+.header .portal-title {
+  margin-top: 17px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
 
-    .photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 4px solid #fff;
-      box-shadow: 0 5px 20px #102b451c;
-    }
+.main {
+  background: white;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 18px 55px #18324a20;
+  overflow: hidden;
+}
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #e8f7ef;
-      color: #14733d;
-      border: 1px solid #b8e6c9;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 14px;
-    }
+.search-section {
+  text-align: center;
+  padding: 38px 28px 34px;
+}
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      background: #20a45a;
-      border-radius: 50%;
-    }
+.shield {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
 
-    h2 {
-      font-size: 28px;
-      margin: 16px 0 6px;
-      color: var(--navy);
-    }
+.search-section h2 {
+  color: var(--navy);
+  margin: 0 0 10px;
+  font-size: 25px;
+}
 
-    .role {
-      color: #64748b;
-      margin: 0 0 22px;
-    }
+.description {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 auto 25px;
+  max-width: 440px;
+}
 
-    .row {
-      padding: 12px 0;
-      border-bottom: 1px solid #e8edf2;
-    }
+.search-form {
+  width: min(430px,100%);
+  margin: auto;
+  text-align: left;
+}
 
-    .label {
-      font-size: 12px;
-      color: #718096;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
+.search-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
 
-    .value {
-      font-size: 17px;
-      font-weight: 650;
-      overflow-wrap: anywhere;
-    }
+.search-form input {
+  width: 100%;
+  height: 52px;
+  padding: 0 15px;
+  border: 1px solid #d8e0e9;
+  border-radius: 9px;
+  font-size: 16px;
+  color: var(--ink);
+  outline: none;
+}
 
-    .id {
-      font-family: ui-monospace,monospace;
-      color: var(--navy);
-      letter-spacing: .5px;
-    }
+.search-form input:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px #123b5d15;
+}
 
-    .foot {
-      padding: 16px 30px;
-      background: #f5f8fb;
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.6;
-    }
+.search-form button {
+  width: 100%;
+  margin-top: 13px;
+  height: 50px;
+  background: var(--navy);
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .error {
-      padding: 40px;
-      text-align: center;
-    }
+.search-form button:hover {
+  background: #1b527c;
+}
 
-    .error h2 {
-      color: #9b2635;
-    }
+.result {
+  border-top: 1px solid #e8edf2;
+}
 
-    @media(max-width:580px) {
-      body {
-        padding: 12px;
-      }
+.result:empty {
+  display: none;
+}
 
-      .content {
-        grid-template-columns: 1fr;
-        padding: 22px;
-        gap: 18px;
-      }
+.result-content {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 25px;
+  padding: 30px;
+}
 
-      .photo {
-        max-width: 190px;
-        display: block;
-        margin: auto;
-      }
+.photo-wrap {
+  width: 100%;
+}
 
-      .brand {
-        padding: 20px;
-      }
+.photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 4px solid white;
+  box-shadow: 0 5px 20px #102b4520;
+}
 
-      .value {
-        font-size: 16px;
-      }
-    }
-  </style>
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #e8f7ef;
+  color: var(--green);
+  border: 1px solid #b8e6c9;
+  border-radius: 50px;
+  padding: 8px 11px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #20a45a;
+  border-radius: 50%;
+}
+
+.result-content h2 {
+  color: var(--navy);
+  font-size: 27px;
+  margin: 15px 0 5px;
+}
+
+.position {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.info-row {
+  padding: 12px 0;
+  border-bottom: 1px solid #e8edf2;
+}
+
+.info-label {
+  color: #718096;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.teacher-id {
+  font-family: monospace;
+  color: var(--navy);
+}
+
+.error-box {
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.error-box h2 {
+  color: var(--red);
+  margin: 0 0 10px;
+}
+
+.error-box p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.try-again {
+  margin-top: 10px;
+  padding: 11px 18px;
+  background: var(--navy);
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.footer {
+  background: #f5f8fb;
+  padding: 18px 25px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media(max-width:580px) {
+  body {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .header {
+    padding: 21px;
+  }
+
+  .search-section {
+    padding: 30px 19px;
+  }
+
+  .result-content {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    gap: 20px;
+  }
+
+  .photo-wrap {
+    text-align: center;
+  }
+
+  .photo {
+    max-width: 180px;
+  }
+
+  .result-content h2 {
+    font-size: 24px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <main class="wrap">
+<div class="wrapper">
 
-    <header class="brand">
-      <h1>উল্লাস একাডেমিক প্রোগ্রাম</h1>
-      <small>ULLASH ACADEMIC PROGRAMME</small>
-    </header>
+  <header class="header">
+    <h1>উল্লাস একাডেমিক প্রোগ্রাম</h1>
+    <small>ULLASH ACADEMIC PROGRAMME</small>
+    <div class="portal-title">
+      OFFICIAL TEACHER VERIFICATION PORTAL
+    </div>
+  </header>
 
-    <section class="card" id="result" aria-live="polite">
+  <main class="main">
 
-      <div class="error">
-        <h2>যাচাই করা হচ্ছে…</h2>
-        <p>Please wait while we verify this teacher ID.</p>
-      </div>
+    <!-- SEARCH PORTAL -->
+    <section class="search-section" id="searchSection">
+
+      <div class="shield">🛡️</div>
+
+      <h2>শিক্ষক পরিচয় যাচাই করুন</h2>
+
+      <p class="description">
+        উল্লাস একাডেমিক প্রোগ্রামের কোনো শিক্ষকের
+        পরিচয় যাচাই করতে তাঁর Teacher ID নম্বর লিখুন।
+      </p>
+
+      <form class="search-form" id="searchForm">
+
+        <label for="teacherId">TEACHER ID</label>
+
+        <input
+          type="text"
+          id="teacherId"
+          placeholder="যেমন: UAP-T-0001"
+          autocomplete="off"
+          required
+        >
+
+        <button type="submit">
+          VERIFY TEACHER
+        </button>
+
+      </form>
 
     </section>
 
+    <!-- VERIFICATION RESULT -->
+    <section class="result" id="result" aria-live="polite"></section>
+
+    <footer class="footer">
+      Ullash Academic Programme<br>
+      Official Teacher Verification System<br>
+      This portal verifies institutional records only.
+      It is not a government identity verification service.
+    </footer>
+
   </main>
 
-  <script>
-    const result = document.getElementById("result");
+</div>
 
-    const id = new URLSearchParams(
-      location.search
-    ).get("id");
+<script>
 
-    // Prevent HTML injection from record values
-    const safe = value =>
-      String(value ?? "").replace(/[&<>"']/g, c => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      }[c]));
+const result = document.getElementById("result");
+const searchForm = document.getElementById("searchForm");
+const teacherIdInput = document.getElementById("teacherId");
 
-    async function verify() {
+let teacherRecords = null;
 
-      if (!id) {
+// Safe text rendering
+function safe(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[c]));
+}
 
-        result.innerHTML = `
-          <div class="error">
-            <h2>আইডি নম্বর পাওয়া যায়নি</h2>
-            <p>Scan the QR code printed on the teacher ID card.</p>
-          </div>
-        `;
+// Load teacher database
+async function loadRecords() {
 
-        return;
-      }
+  if (teacherRecords) {
+    return teacherRecords;
+  }
 
-      try {
+  const response = await fetch(
+    "./teachers.json",
+    { cache: "no-store" }
+  );
 
-        // Correct path: teachers.json is in the root folder
-        const res = await fetch(
-          "./teachers.json",
-          { cache: "no-store" }
-        );
+  if (!response.ok) {
+    throw new Error("Teacher database could not load.");
+  }
 
-        if (!res.ok) {
-          throw new Error(
-            "Could not load verification records. HTTP " + res.status
-          );
-        }
+  teacherRecords = await response.json();
 
-        const records = await res.json();
+  return teacherRecords;
+}
 
-        const teacher = records[id];
+// Show error message
+function showError(title, message) {
 
-        if (!teacher || teacher.status !== "active") {
+  result.innerHTML = `
+    <div class="error-box">
+      <h2>${safe(title)}</h2>
+      <p>${safe(message)}</p>
 
-          result.innerHTML = `
-            <div class="error">
-              <h2>পরিচয় যাচাই করা যায়নি</h2>
-              <p>
-                This ID is not found, inactive, or revoked.
-                Please contact the institution.
-              </p>
-            </div>
-          `;
+      <button class="try-again"
+        onclick="resetSearch()">
+        আবার চেষ্টা করুন
+      </button>
+    </div>
+  `;
+}
 
-          return;
-        }
+// Return to search portal
+function resetSearch() {
 
-        result.innerHTML = `
+  result.innerHTML = "";
 
-          <div class="content">
+  teacherIdInput.value = "";
 
-            <div>
-              <img
-                class="photo"
-                src="${safe(teacher.photo)}"
-                alt="Teacher portrait"
-                onerror="this.style.display='none'"
-              >
-            </div>
+  history.replaceState(
+    null,
+    "",
+    window.location.pathname
+  );
 
-            <div>
+  teacherIdInput.focus();
 
-              <span class="tag">
-                <span class="dot"></span>
-                VERIFIED RECORD · ACTIVE
-              </span>
+  document.getElementById("searchSection")
+    .scrollIntoView({ behavior: "smooth" });
+}
 
-              <h2>${safe(teacher.name)}</h2>
+// Verify teacher
+async function verifyTeacher(id) {
 
-              <p class="role">
-                ${safe(teacher.position)}
-              </p>
+  document.getElementById("searchSection")
+    .classList.remove("hidden");
 
-              <div class="row">
-                <div class="label">
-                  প্রতিষ্ঠান / Organization
-                </div>
+  result.innerHTML = `
+    <div class="error-box">
+      <h2>যাচাই করা হচ্ছে…</h2>
+      <p>Please wait while we verify this teacher ID.</p>
+    </div>
+  `;
 
-                <div class="value">
-                  ${safe(teacher.organization)}
-                </div>
-              </div>
+  try {
 
-              <div class="row">
-                <div class="label">
-                  Teacher ID
-                </div>
+    const records = await loadRecords();
 
-                <div class="value id">
-                  ${safe(teacher.public_id)}
-                </div>
-              </div>
+    const teacher = records[id];
 
-              <div class="row">
-                <div class="label">
-                  Verification status
-                </div>
+    if (!teacher) {
 
-                <div class="value">
-                  Active
-                </div>
-              </div>
+      showError(
+        "শিক্ষক পাওয়া যায়নি",
+        "এই Teacher ID আমাদের রেকর্ডে পাওয়া যায়নি। ID নম্বরটি আবার পরীক্ষা করুন।"
+      );
 
-            </div>
-
-          </div>
-
-          <div class="foot">
-
-            এই পৃষ্ঠাটি প্রতিষ্ঠানের প্রকাশিত রেকর্ডের
-            ভিত্তিতে পরিচয় যাচাই করে। সন্দেহ হলে
-            প্রতিষ্ঠানের সঙ্গে সরাসরি যোগাযোগ করুন।
-
-            <br>
-
-            This page verifies the published institutional
-            record; it is not a government identity check.
-
-          </div>
-
-        `;
-
-      } catch (error) {
-
-        console.error(error);
-
-        result.innerHTML = `
-          <div class="error">
-            <h2>সাময়িক সমস্যা</h2>
-            <p>
-              Verification data could not be loaded.
-              Please check the published files and try again.
-            </p>
-          </div>
-        `;
-
-      }
+      return;
     }
 
-    verify();
+    if (teacher.status !== "active") {
 
-  </script>
+      showError(
+        "পরিচয় যাচাই করা যায়নি",
+        "এই Teacher ID বর্তমানে Active নয়। অনুগ্রহ করে প্রতিষ্ঠানের সঙ্গে যোগাযোগ করুন।"
+      );
+
+      return;
+    }
+
+    // Keep URL shareable for QR verification
+    const newURL = new URL(window.location.href);
+    newURL.searchParams.set("id", id);
+    newURL.searchParams.delete("utm_source");
+
+    history.replaceState(null, "", newURL);
+
+    result.innerHTML = `
+
+      <div class="result-content">
+
+        <div class="photo-wrap">
+          <img
+            class="photo"
+            src="${safe(teacher.photo)}"
+            alt="Teacher portrait"
+            onerror="this.style.display='none'"
+          >
+        </div>
+
+        <div>
+
+          <span class="status">
+            <span class="status-dot"></span>
+            VERIFIED RECORD · ACTIVE
+          </span>
+
+          <h2>${safe(teacher.name)}</h2>
+
+          <p class="position">
+            ${safe(teacher.position)}
+          </p>
+
+          <div class="info-row">
+            <div class="info-label">
+              প্রতিষ্ঠান / ORGANIZATION
+            </div>
+
+            <div class="info-value">
+              ${safe(teacher.organization)}
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">
+              TEACHER ID
+            </div>
+
+            <div class="info-value teacher-id">
+              ${safe(teacher.public_id)}
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">
+              VERIFICATION STATUS
+            </div>
+
+            <div class="info-value">
+              Active
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="error-box">
+        <button class="try-again"
+          onclick="resetSearch()">
+          অন্য শিক্ষকের ID যাচাই করুন
+        </button>
+      </div>
+
+    `;
+
+  } catch (error) {
+
+    console.error(error);
+
+    showError(
+      "সাময়িক সমস্যা",
+      "Verification database লোড করা যাচ্ছে না। কিছুক্ষণ পর আবার চেষ্টা করুন।"
+    );
+
+  }
+}
+
+// Search form submit
+searchForm.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const id = teacherIdInput.value
+    .trim()
+    .toUpperCase();
+
+  if (!id) {
+    teacherIdInput.focus();
+    return;
+  }
+
+  const url = new URL(window.location.href);
+
+  url.searchParams.set("id", id);
+
+  window.location.href = url.toString();
+
+});
+
+// Auto verify when QR URL contains ID
+const params = new URLSearchParams(
+  window.location.search
+);
+
+const existingID = params.get("id");
+
+if (existingID) {
+
+  teacherIdInput.value = existingID;
+
+  verifyTeacher(existingID.trim().toUpperCase());
+
+}
+
+</script>
 
 </body>
 </html>
