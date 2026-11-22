@@ -1,4 +1,3 @@
-
 {
   "UAP-T-0001": {
     "name": "Lablu Rahman",
@@ -7,5 +6,13 @@
     "status": "active",
     "photo": "lablu-rahman.jpg",
     "public_id": "UAP-T-0001"
+  },
+  "UAP-T-0002": {
+    "name": "Teacher Name",
+    "position": "Assistant Teacher",
+    "organization": "Ullash Academic Programme",
+    "status": "active",
+    "photo": "teacher-2.jpg",
+    "public_id": "UAP-T-0002"
   }
 }
